@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Property-mangager</title>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+    <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="/js/modules.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/services.js"></script>
+
+  </head>
+  <body ng-app='propertyApp' ng-controller="homeCtrl">
+
+
+
+    <!-- NAVBAR START -->
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="name" ng-model='newClient.name'>
+      </div>
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="Email" ng-model='newClient.Email'>
+    </div>
+    <div class="form-group">
+      <input type="Phone" class="form-control" placeholder="phone" ng-model='newClient.phone'>
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="addClient(newClient)">Add new Client</button>
+  </form>
+
+
+
+
+
+
+<%# //clients list%>
+  <div class="container"  >
+    <table class="table">
+      <thead>
+        <tr >
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat = 'clients in clientsdata'>
+          <td>{{clients.name}}</td>
+          <td>{{clients.Email}}</td>
+          <td>{{clients.phone}}</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-sm" ng-click = edit(clients) >
+              <span class="glyphicon glyphicon-edit"></span>
+            </button>
+            <button type="button" class="btn btn-danger btn-sm" ng-click= "delteClient(clients)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+
+
+
+    <ui-view></ui-view>
+    <!--  -->
+</body>
+
+</html>
