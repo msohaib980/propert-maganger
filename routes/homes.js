@@ -17,4 +17,16 @@ router.get('/', (req, res) => {
 
 
   })
-})
+});
+
+router.post('/', (req, res) => {
+  Home.create(req.body, (err, home) =>{
+    if(err) {
+      return res.status(400).send(err)
+    }
+    res.send(home);
+  })
+});
+
+
+module.exports = router

@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET questions listing. */
+/* GET client and homes listing. */
 router.use('/clients', require('./clients'));
-// router.use('/homes', require('./homes'));
+router.use('/homes', require('./homes'));
 
 module.exports = router;
